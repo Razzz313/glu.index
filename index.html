@@ -747,10 +747,10 @@ footer{border-top:1px solid var(--border);padding:36px 4vw;display:flex;align-it
       </div>
       <div class="or-div">or fill the form</div>
       <div class="form-row">
-        <div class="field"><label>Name</label><input type="text" placeholder="John Lee"></div>
-        <div class="field"><label>Company</label><input type="text" placeholder="Your Studio"></div>
+        <div class="field"><label>Name</label><input type="text" id="partner_name" name="from_name" placeholder="John Lee"></div>
+        <div class="field"><label>Company</label><input type="text" id="partner_company" name="company" placeholder="Your Studio"></div>
       </div>
-      <div class="field"><label>Email</label><input type="email" placeholder="john@studio.com"></div>
+      <div class="field"><label>Email</label><input type="email" id="partner_email" name="from_email" placeholder="john@studio.com"></div>
       <div class="field"><label>What you offer</label>
         <select><option value="" disabled selected>Select your primary service</option>
           <option>Marketing &amp; Branding</option><option>Business Development</option>
@@ -760,8 +760,8 @@ footer{border-top:1px solid var(--border);padding:36px 4vw;display:flex;align-it
           <option>Data &amp; Analytics</option><option>Other</option>
         </select>
       </div>
-      <div class="field"><label>About your company</label><textarea placeholder="What does your company do and what stage are you at?"></textarea></div>
-      <button class="btn btn-outline btn-lg fsub" onclick="ok('p')">Apply to Partner →</button>
+      <div class="field"><label>About your company</label><textarea id="partner_message" name="message" placeholder="What does your company do and what stage are you at?"></textarea></div>
+      <button class="btn btn-outline btn-lg fsub" onclick="sendPartnerEmail()">Apply to Partner →</button>
       <div class="fok" id="ok-p">✓ Application received. Our team will review and reach out within 48 hours.</div>
     </div>
   </div>
@@ -837,5 +837,28 @@ document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
     });
 
   }
+  function sendPartnerEmail() {
+
+  const params = {
+    from_name: document.getElementById("partner_name").value,
+    company: document.getElementById("partner_company").value,
+    from_email: document.getElementById("partner_email").value,
+    message: document.getElementById("partner_message").value,
+  };
+
+  emailjs.send(
+    "service_sqjhany",
+    "template_465yzfk",
+    params
+  )
+  .then(() => {
+    alert("✓ Application sent successfully. We'll be in touch soon.");
+  })
+  .catch((error) => {
+    console.log(error);
+    alert("Something went wrong. Please try again.");
+  });
+
+}
 </script></body>
 </html>
