@@ -1720,12 +1720,22 @@ const PULSE_COUNT  = isMobile ? 2  : 5;
   let raf;
   let hidden = false;
 
- function render(){
+ let lastFrame = 0;
+
+function render(time){
+  if(time - lastFrame > 33){
+    lastFrame = time;
+
     if(!hidden){
       ctx.clearRect(0, 0, W, H);
-      particles.forEach(p => { p.update(); p.draw(); });
+      particles.forEach(p => { 
+        p.update(); 
+        p.draw(); 
+      });
     }
-    raf = requestAnimationFrame(render);
+  }
+
+  raf = requestAnimationFrame(render);
 }
 
   document.addEventListener('visibilitychange', () => {
