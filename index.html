@@ -1351,9 +1351,22 @@ footer::before{
         <div class="field"><label>Company</label><input type="text" placeholder="Your Studio"></div>
       </div>
       <div class="field"><label>Email</label><input type="email" placeholder="john@studio.com"></div>
-      <div class="field"><label>What you offer</label>
-       <select name="service" id="service">
-      </div>
+      <div class="field">
+  <label>What you offer</label>
+  <select name="service" id="service">
+    <option value="" disabled selected>Select a service</option>
+    <option>Marketing & Branding</option>
+    <option>Business Development</option>
+    <option>Design & Creative</option>
+    <option>Software & Web Development</option>
+    <option>Legal & Compliance</option>
+    <option>Operations & Admin</option>
+    <option>Finance & Accounting</option>
+    <option>HR & Recruiting</option>
+    <option>Data & Analytics</option>
+    <option>Other</option>
+  </select>
+</div>
       <div class="field"><label>About your company</label><textarea placeholder="What does your company do and what stage are you at?"></textarea></div>
       <button class="btn btn-outline btn-lg fsub" onclick="ok('p')">Apply to Partner →</button>
       <div class="fok" id="ok-p">✓ Application received. Our team will review and reach out within 48 hours.</div>
