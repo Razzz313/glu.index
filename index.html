@@ -1730,13 +1730,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   let raf;
   let hidden = false;
 
-  function render(){
-    ctx.clearRect(0, 0, W, H);
+ function render(){
     if(!hidden){
+      ctx.clearRect(0, 0, W, H);
       particles.forEach(p => { p.update(); p.draw(); });
     }
     raf = requestAnimationFrame(render);
-  }
+}
 
   document.addEventListener('visibilitychange', () => {
     hidden = document.hidden;
