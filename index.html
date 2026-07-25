@@ -1710,10 +1710,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   // ── Build particle pool
   // Mobile: reduced count for performance
   const isMobile = window.innerWidth < 768;
-  const DRIFT_COUNT  = isMobile ? 18 : 38;
-  const ORBIT_COUNT  = isMobile ? 8  : 16;
-  const PULSE_COUNT  = isMobile ? 4  : 8;
-
+ const DRIFT_COUNT  = isMobile ? 10 : 25;
+const ORBIT_COUNT  = isMobile ? 5  : 10;
+const PULSE_COUNT  = isMobile ? 2  : 5;
   const particles = [];
   for(let i = 0; i < DRIFT_COUNT; i++) particles.push(new Particle('drift'));
   for(let i = 0; i < ORBIT_COUNT; i++) particles.push(new Particle('orbit'));
