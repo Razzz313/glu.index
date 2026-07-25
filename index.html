@@ -1668,15 +1668,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
         }
 
         // Micro trail (last 3 positions)
-        for(let i = 3; i >= 1; i--){
-          const ta = this.angle - this.speed * i * 4;
-          const tx = this.cx + Math.cos(ta) * this.radius;
-          const ty = this.cy + Math.sin(ta) * this.radius;
-          ctx.beginPath();
-          ctx.arc(tx, ty, this.size * (1 - i*0.25), 0, Math.PI*2);
-          ctx.fillStyle = `rgba(${r},${g},${b},${this.opacity * (0.15 - i*0.04)})`;
-          ctx.fill();
-        }
 
         // Glow
         const grd = ctx.createRadialGradient(px, py, 0, px, py, this.glow * 2);
