@@ -1588,6 +1588,7 @@ function submitForm(type, e){
   document.querySelectorAll("[name^='" + prefix + "']").forEach(el => {
     params[el.name] = el.value;
   });
+   params.request_type = isHire ? "Service Request" : "Become a Partner";
 
   // Basic validation
   if(!params[prefix + "name"] || !params[prefix + "email"]){
